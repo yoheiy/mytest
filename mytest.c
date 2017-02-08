@@ -1,7 +1,7 @@
 int
 test(char **argv)
 {
-   return 1;
+   return argv[1] ? 0 : 1;
 }
 
 #ifdef UNIT_TEST
