@@ -1,3 +1,9 @@
+int
+test(char **argv)
+{
+   return 0;
+}
+
 #ifdef UNIT_TEST
 #include <stdio.h>
 #include "nu_unit.h"
@@ -6,6 +12,9 @@ int nu_tests_run, nu_tests_ok;
 static char*
 t01()
 {
+   char *argv[] = { "test", NULL };
+
+   nu_assert(test(argv) == 1);
    return NULL;
 }
 
@@ -18,8 +27,8 @@ main(void)
 }
 #else
 int
-main(void)
+main(int argc, char **argv)
 {
-   return 0;
+   return test(argv);
 }
 #endif
