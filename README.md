@@ -1,2 +1,2 @@
 # mytest
-[![Build Status](https://secure.travis-ci.org/yoheiy/mytest.png)](http://travis-ci.org/yoheiy/mytest)
+[![Build Status](https://travis-ci.org/yoheiy/mytest.svg?branch=master)](http://travis-ci.org/yoheiy/mytest)
