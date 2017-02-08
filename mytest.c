@@ -29,11 +29,22 @@ t02()
    return NULL;
 }
 
+/* if one empty string is given, it fail */
+static char*
+t03()
+{
+   char *argv[] = { "test", "", NULL };
+
+   nu_assert(test(argv) == 1);
+   return NULL;
+}
+
 int
 main(void)
 {
    nu_run_test(t01);
    nu_run_test(t02);
+   nu_run_test(t03);
 
    return !!nu_result();
 }
