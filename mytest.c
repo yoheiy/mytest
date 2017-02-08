@@ -1,5 +1,5 @@
 #ifdef UNIT_TEST
-#include "nu_test.h"
+#include "nu_unit.h"
 #endif
 int
 main(void)
