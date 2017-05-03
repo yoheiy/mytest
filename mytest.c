@@ -49,6 +49,16 @@ t04()
    return NULL;
 }
 
+/* if -n and non-empty string is given, it succeed */
+static char*
+t05()
+{
+   char *argv[] = { "test", "-n", "spam", NULL };
+
+   nu_assert(test(argv) == 0);
+   return NULL;
+}
+
 int
 main(void)
 {
@@ -56,6 +66,7 @@ main(void)
    nu_run_test(t02);
    nu_run_test(t03);
    nu_run_test(t04);
+   nu_run_test(t05);
 
    return !!nu_result();
 }
