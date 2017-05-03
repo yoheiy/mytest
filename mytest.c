@@ -1,6 +1,10 @@
 int
 test(char **argv)
 {
+   /* option -z */
+   if (argv[1] && argv[1][0] == '-' && argv[1][1] == 'z' && !argv[1][2])
+      return argv[1] && *argv[1] && !argv[2]? 1 : 0;
+
    /* skip -n */
    if (argv[1] && argv[1][0] == '-' && argv[1][1] == 'n' && !argv[1][2])
       argv++;
