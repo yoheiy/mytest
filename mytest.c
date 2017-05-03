@@ -1,7 +1,7 @@
 int
 test(char **argv)
 {
-   return argv[1] && *argv[1] ? 0 : 1;
+   return argv[1] && *argv[1] && !argv[2]? 0 : 1;
 }
 
 #ifdef UNIT_TEST
@@ -39,12 +39,23 @@ t03()
    return NULL;
 }
 
+/* if two string is given, it fail */
+static char*
+t04()
+{
+   char *argv[] = { "test", "spam", "eggs", NULL };
+
+   nu_assert(test(argv) == 1);
+   return NULL;
+}
+
 int
 main(void)
 {
    nu_run_test(t01);
    nu_run_test(t02);
    nu_run_test(t03);
+   nu_run_test(t04);
 
    return !!nu_result();
 }
