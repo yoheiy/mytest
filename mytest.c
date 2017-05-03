@@ -1,6 +1,10 @@
 int
 test(char **argv)
 {
+   /* option -z */
+   if (argv[1] && argv[1][0] == '-' && argv[1][1] == 'z' && !argv[1][2])
+      return argv[1] && *argv[1] && !argv[2]? 1 : 0;
+
    /* skip -n */
    if (argv[1] && argv[1][0] == '-' && argv[1][1] == 'n' && !argv[1][2])
       argv++;
@@ -63,6 +67,16 @@ t05()
    return NULL;
 }
 
+/* if -z and empty string is given, it succeed */
+static char*
+t06()
+{
+   char *argv[] = { "test", "-z", "", NULL };
+
+   nu_assert(test(argv) == 0);
+   return NULL;
+}
+
 int
 main(void)
 {
@@ -71,6 +85,7 @@ main(void)
    nu_run_test(t03);
    nu_run_test(t04);
    nu_run_test(t05);
+   nu_run_test(t06);
 
    return !!nu_result();
 }
