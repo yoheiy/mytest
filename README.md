@@ -9,3 +9,4 @@
 
     mytest
     mytest string
+    mytest -n string
