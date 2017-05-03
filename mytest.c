@@ -63,6 +63,16 @@ t05()
    return NULL;
 }
 
+/* if -z and empty string is given, it succeed */
+static char*
+t06()
+{
+   char *argv[] = { "test", "-z", "", NULL };
+
+   nu_assert(test(argv) == 0);
+   return NULL;
+}
+
 int
 main(void)
 {
@@ -71,6 +81,7 @@ main(void)
    nu_run_test(t03);
    nu_run_test(t04);
    nu_run_test(t05);
+   nu_run_test(t06);
 
    return !!nu_result();
 }
