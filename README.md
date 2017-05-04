@@ -10,3 +10,4 @@
     mytest
     mytest string
     mytest -n string
+    mytest -z string
